@@ -37,56 +37,66 @@ export function loadThemeCss(extensionPath: string, theme: string): string {
   return "";
 }
 
+/* Export styles match Milkdown Crepe rendering */
+const baseStyles = `
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .content { max-width: 980px; margin: 0 auto; padding: 60px 120px; }
+    .content p { font-size: 16px; line-height: 24px; padding: 4px 0; }
+    .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 { font-weight: 400; padding: 2px 0; }
+    .content h1 { font-size: 42px; line-height: 50px; margin-top: 32px; }
+    .content h2 { font-size: 36px; line-height: 44px; margin-top: 28px; }
+    .content h3 { font-size: 32px; line-height: 40px; margin-top: 24px; }
+    .content h4 { font-size: 28px; line-height: 36px; margin-top: 20px; }
+    .content h5 { font-size: 24px; line-height: 32px; margin-top: 16px; }
+    .content h6 { font-size: 18px; font-weight: 700; line-height: 28px; margin-top: 16px; }
+    .content pre code { padding: 0; background: transparent; color: inherit; }
+    .content ul, .content ol { padding-left: 24px; }
+    .content li { padding: 2px 0; }
+    .content table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+    .content img { max-width: 100%; vertical-align: bottom; }
+`;
+
 const exportThemes: Record<string, string> = {
   github: `
     body { margin: 0; padding: 0; background: #ffffff; }
-    .content { max-width: 980px; margin: 0 auto; padding: 32px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #1f2328; }
-    h1 { font-size: 2em; border-bottom: 1px solid #d1d9e0; padding-bottom: 0.3em; }
-    h2 { font-size: 1.5em; border-bottom: 1px solid #d1d9e0; padding-bottom: 0.3em; }
-    h3 { font-size: 1.25em; }
-    a { color: #0969da; text-decoration: none; }
-    code { background: #eff1f3; padding: 0.2em 0.4em; border-radius: 6px; font-size: 85%; font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
-    pre { background: #f6f8fa; padding: 16px; border-radius: 6px; overflow-x: auto; }
-    pre code { background: none; padding: 0; }
-    blockquote { margin: 0; padding: 0 1em; color: #656d76; border-left: 0.25em solid #d1d9e0; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #d1d9e0; padding: 6px 13px; }
-    tr:nth-child(2n) { background: #f6f8fa; }
-    hr { border: none; border-top: 1px solid #d1d9e0; }
-    img { max-width: 100%; }
+    ${baseStyles}
+    .content { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; color: #1f2328; }
+    .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 { font-family: 'Noto Serif', Cambria, 'Times New Roman', Times, serif; }
+    .content a { color: #0969da; text-decoration: underline; }
+    .content code { color: #cf222e; background: rgba(209,217,224,0.4); padding: 0 2px; border-radius: 4px; font-size: 87.5%; font-family: 'Space Mono', Fira Code, Menlo, Monaco, 'Courier New', monospace; }
+    .content pre { background: rgba(209,217,224,0.4); padding: 10px; border-radius: 4px; overflow-x: auto; }
+    .content blockquote { position: relative; padding-left: 40px; margin: 4px 0; }
+    .content blockquote::before { content: ''; width: 4px; left: 0; top: 4px; bottom: 4px; position: absolute; background: #d5d5d5; border-radius: 100px; }
+    .content th, .content td { border: 1px solid #d1d9e0; padding: 6px 13px; }
+    .content tr:nth-child(2n) { background: #f6f8fa; }
+    .content hr { border: none; background-color: rgba(168,168,168,0.2); height: 1px; margin: 6px 0; }
   `,
   dark: `
     body { margin: 0; padding: 0; background: #0d1117; }
-    .content { max-width: 980px; margin: 0 auto; padding: 32px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #e6edf3; }
-    h1 { font-size: 2em; border-bottom: 1px solid #30363d; padding-bottom: 0.3em; }
-    h2 { font-size: 1.5em; border-bottom: 1px solid #30363d; padding-bottom: 0.3em; }
-    h3 { font-size: 1.25em; }
-    a { color: #58a6ff; text-decoration: none; }
-    code { background: #161b22; padding: 0.2em 0.4em; border-radius: 6px; font-size: 85%; font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
-    pre { background: #161b22; padding: 16px; border-radius: 6px; overflow-x: auto; }
-    pre code { background: none; padding: 0; }
-    blockquote { margin: 0; padding: 0 1em; color: #8b949e; border-left: 0.25em solid #30363d; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #30363d; padding: 6px 13px; }
-    tr:nth-child(2n) { background: #161b22; }
-    hr { border: none; border-top: 1px solid #30363d; }
-    img { max-width: 100%; }
+    ${baseStyles}
+    .content { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; color: #e6edf3; }
+    .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 { font-family: 'Noto Serif', Cambria, 'Times New Roman', Times, serif; }
+    .content a { color: #58a6ff; text-decoration: underline; }
+    .content code { color: #ff7b72; background: rgba(48,54,61,0.6); padding: 0 2px; border-radius: 4px; font-size: 87.5%; font-family: 'Space Mono', Fira Code, Menlo, Monaco, 'Courier New', monospace; }
+    .content pre { background: rgba(48,54,61,0.6); padding: 10px; border-radius: 4px; overflow-x: auto; }
+    .content blockquote { position: relative; padding-left: 40px; margin: 4px 0; }
+    .content blockquote::before { content: ''; width: 4px; left: 0; top: 4px; bottom: 4px; position: absolute; background: #2f2f2f; border-radius: 100px; }
+    .content th, .content td { border: 1px solid #30363d; padding: 6px 13px; }
+    .content tr:nth-child(2n) { background: #161b22; }
+    .content hr { border: none; background-color: rgba(117,117,117,0.2); height: 1px; margin: 6px 0; }
   `,
   minimal: `
     body { margin: 0; padding: 0; background: #fafafa; }
-    .content { max-width: 700px; margin: 0 auto; padding: 32px; font-family: "Georgia", "Times New Roman", serif; font-size: 18px; line-height: 1.8; color: #333333; }
-    h1 { font-size: 1.8em; font-weight: normal; }
-    h2 { font-size: 1.4em; font-weight: normal; }
-    h3 { font-size: 1.15em; font-weight: bold; }
-    a { color: #333333; text-decoration: underline; }
-    code { background: #f0f0f0; padding: 0.15em 0.3em; border-radius: 3px; font-size: 85%; font-family: "Courier New", Courier, monospace; }
-    pre { background: #f0f0f0; padding: 16px; border-radius: 3px; overflow-x: auto; }
-    pre code { background: none; padding: 0; }
-    blockquote { margin: 0; padding: 0 1.2em; color: #666666; border-left: 3px solid #cccccc; font-style: italic; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border-bottom: 1px solid #dddddd; padding: 8px 12px; text-align: left; }
-    hr { border: none; border-top: 1px solid #dddddd; }
-    img { max-width: 100%; }
+    ${baseStyles}
+    .content { max-width: 700px; font-family: "Georgia", "Times New Roman", serif; color: #333333; }
+    .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 { font-family: "Georgia", "Times New Roman", serif; }
+    .content a { color: #333333; text-decoration: underline; }
+    .content code { color: #8b4513; background: rgba(204,204,204,0.4); padding: 0 2px; border-radius: 4px; font-size: 87.5%; font-family: "Courier New", Courier, monospace; }
+    .content pre { background: rgba(204,204,204,0.4); padding: 10px; border-radius: 4px; overflow-x: auto; }
+    .content blockquote { position: relative; padding-left: 40px; margin: 4px 0; }
+    .content blockquote::before { content: ''; width: 4px; left: 0; top: 4px; bottom: 4px; position: absolute; background: #e0e0e0; border-radius: 100px; }
+    .content th, .content td { border-bottom: 1px solid #dddddd; padding: 8px 12px; text-align: left; }
+    .content hr { border: none; background-color: rgba(204,204,204,0.3); height: 1px; margin: 6px 0; }
   `,
 };
 
