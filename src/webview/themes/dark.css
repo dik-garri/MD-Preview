@@ -1,49 +1,31 @@
-/* Dark theme */
-#editor {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #e6edf3;
+/* Dark theme (GitHub Dark) */
+.milkdown {
+  --crepe-color-background: #0d1117;
+  --crepe-color-on-background: #e6edf3;
+  --crepe-color-surface: #161b22;
+  --crepe-color-surface-low: #1c2128;
+  --crepe-color-on-surface: #e6edf3;
+  --crepe-color-on-surface-variant: #8b949e;
+  --crepe-color-outline: #30363d;
+  --crepe-color-primary: #58a6ff;
+  --crepe-color-secondary: #388bfd26;
+  --crepe-color-on-secondary: #58a6ff;
+  --crepe-color-inverse: #e6edf3;
+  --crepe-color-on-inverse: #0d1117;
+  --crepe-color-inline-code: #ff7b72;
+  --crepe-color-error: #ff7b72;
+  --crepe-color-hover: #1c2128;
+  --crepe-color-selected: #388bfd26;
+  --crepe-color-inline-area: #30363d;
+
+  --crepe-font-title: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --crepe-font-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --crepe-font-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --crepe-shadow-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 3px 1px rgba(0, 0, 0, 0.3);
+  --crepe-shadow-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 2px 6px 2px rgba(0, 0, 0, 0.3);
+}
+
+body {
   background: #0d1117;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 24px;
 }
-
-#editor h1 { font-size: 2em; border-bottom: 1px solid #30363d; padding-bottom: 0.3em; }
-#editor h2 { font-size: 1.5em; border-bottom: 1px solid #30363d; padding-bottom: 0.3em; }
-#editor h3 { font-size: 1.25em; }
-
-#editor a { color: #58a6ff; text-decoration: none; }
-#editor a:hover { text-decoration: underline; }
-
-#editor code {
-  background: #161b22;
-  padding: 0.2em 0.4em;
-  border-radius: 6px;
-  font-size: 85%;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-}
-
-#editor pre {
-  background: #161b22;
-  padding: 16px;
-  border-radius: 6px;
-  overflow-x: auto;
-}
-
-#editor pre code { background: none; padding: 0; font-size: 85%; }
-
-#editor blockquote {
-  margin: 0;
-  padding: 0 1em;
-  color: #8b949e;
-  border-left: 0.25em solid #30363d;
-}
-
-#editor table { border-collapse: collapse; width: 100%; }
-#editor th, #editor td { border: 1px solid #30363d; padding: 6px 13px; }
-#editor tr:nth-child(2n) { background: #161b22; }
-
-#editor hr { border: none; border-top: 1px solid #30363d; margin: 24px 0; }
-#editor img { max-width: 100%; }

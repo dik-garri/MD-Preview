@@ -1,48 +1,31 @@
 /* Minimal clean theme */
-#editor {
-  font-family: "Georgia", "Times New Roman", serif;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #333333;
+.milkdown {
+  --crepe-color-background: #fafafa;
+  --crepe-color-on-background: #333333;
+  --crepe-color-surface: #f0f0f0;
+  --crepe-color-surface-low: #e8e8e8;
+  --crepe-color-on-surface: #333333;
+  --crepe-color-on-surface-variant: #666666;
+  --crepe-color-outline: #cccccc;
+  --crepe-color-primary: #333333;
+  --crepe-color-secondary: #e8e8e8;
+  --crepe-color-on-secondary: #333333;
+  --crepe-color-inverse: #f0f0f0;
+  --crepe-color-on-inverse: #333333;
+  --crepe-color-inline-code: #8b4513;
+  --crepe-color-error: #cc0000;
+  --crepe-color-hover: #eeeeee;
+  --crepe-color-selected: #e0e0e0;
+  --crepe-color-inline-area: #dddddd;
+
+  --crepe-font-title: "Georgia", "Times New Roman", serif;
+  --crepe-font-default: "Georgia", "Times New Roman", serif;
+  --crepe-font-code: "Courier New", Courier, monospace;
+
+  --crepe-shadow-1: none;
+  --crepe-shadow-2: none;
+}
+
+body {
   background: #fafafa;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 32px;
 }
-
-#editor h1 { font-size: 1.8em; font-weight: normal; margin-top: 1.5em; }
-#editor h2 { font-size: 1.4em; font-weight: normal; margin-top: 1.3em; }
-#editor h3 { font-size: 1.15em; font-weight: bold; }
-
-#editor a { color: #333333; text-decoration: underline; }
-
-#editor code {
-  background: #f0f0f0;
-  padding: 0.15em 0.3em;
-  border-radius: 3px;
-  font-size: 85%;
-  font-family: "Courier New", Courier, monospace;
-}
-
-#editor pre {
-  background: #f0f0f0;
-  padding: 16px;
-  border-radius: 3px;
-  overflow-x: auto;
-}
-
-#editor pre code { background: none; padding: 0; }
-
-#editor blockquote {
-  margin: 0;
-  padding: 0 1.2em;
-  color: #666666;
-  border-left: 3px solid #cccccc;
-  font-style: italic;
-}
-
-#editor table { border-collapse: collapse; width: 100%; }
-#editor th, #editor td { border-bottom: 1px solid #dddddd; padding: 8px 12px; text-align: left; }
-
-#editor hr { border: none; border-top: 1px solid #dddddd; margin: 32px 0; }
-#editor img { max-width: 100%; }

@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import * as fs from "fs";
-import { renderMarkdownToHtml, wrapInHtmlDocument, loadThemeCss } from "../services/export";
+import { renderMarkdownToHtml, wrapInHtmlDocument, getExportThemeCss } from "../services/export";
 
 function findChromePath(): string | undefined {
   const candidates: Record<string, string[]> = {
@@ -47,7 +47,7 @@ export function registerExportPdfCommand(context: vscode.ExtensionContext) {
 
     const markdown = editor.document.getText();
     const theme = vscode.workspace.getConfiguration("mdPreview").get<string>("theme", "github");
-    const themeCss = loadThemeCss(context.extensionPath, theme);
+    const themeCss = getExportThemeCss(theme);
     const bodyHtml = renderMarkdownToHtml(markdown);
     const title = path.basename(editor.document.fileName, ".md");
     const fullHtml = wrapInHtmlDocument(bodyHtml, themeCss, title);
