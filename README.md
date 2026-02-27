@@ -25,11 +25,11 @@ npm run build
 # Package as .vsix
 npx @vscode/vsce package
 
-# Install in VS Code / Cursor
+# Install in VS Code
 code --install-extension md-preview-0.0.1.vsix
-# or for Cursor:
-cursor --install-extension md-preview-0.0.1.vsix
 ```
+
+Or in **Cursor**: `Cmd+Shift+P` → `Extensions: Install from VSIX...` → select `md-preview-0.0.1.vsix`.
 
 ### Development mode
 
@@ -60,3 +60,7 @@ Settings → search `mdPreview.theme` → choose `github`, `dark`, or `minimal`.
 - VS Code / Cursor `^1.85.0`
 - Node.js (for building from source)
 - Google Chrome or Chromium (for PDF export only)
+
+## Author
+
+Garry Dik
