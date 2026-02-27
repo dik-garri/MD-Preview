@@ -15,6 +15,7 @@ const extensionConfig = {
   },
   externals: {
     vscode: "commonjs vscode",
+    "puppeteer-core": "commonjs puppeteer-core",
   },
   resolve: {
     extensions: [".ts", ".js"],

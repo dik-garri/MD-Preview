@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "@milkdown/crepe": "^7.0.0",
-    "markdown-it": "^14.0.0"
+    "markdown-it": "^14.0.0",
+    "puppeteer-core": "^24.37.5"
   }
 }

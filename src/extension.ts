@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 import * as path from "path";
 import * as fs from "fs";
 import { registerExportHtmlCommand } from "./commands/exportHtml";
+import { registerExportPdfCommand } from "./commands/exportPdf";
 
 let currentPanel: vscode.WebviewPanel | undefined;
 
@@ -83,6 +84,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   // Export commands
   context.subscriptions.push(registerExportHtmlCommand(context));
+  context.subscriptions.push(registerExportPdfCommand(context));
 }
 
 function sendTheme(context: vscode.ExtensionContext, panel: vscode.WebviewPanel) {
