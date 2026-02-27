@@ -4,6 +4,8 @@
   "description": "WYSIWYG Markdown editor with themes and export",
   "version": "0.0.1",
   "author": "Garry Dik",
+  "publisher": "dik-garri",
+  "homepage": "https://github.com/dik-garri/MD-Preview",
   "repository": {
     "type": "git",
     "url": "https://github.com/dik-garri/MD-Preview.git"
