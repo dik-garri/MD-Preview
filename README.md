@@ -63,4 +63,4 @@ Settings → search `mdPreview.theme` → choose `github`, `dark`, or `minimal`.
 
 ## Author
 
-Garry Dik
+[Garry Dik](https://github.com/dik-garri) — [GitHub Repository](https://github.com/dik-garri/MD-Preview)
