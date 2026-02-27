@@ -32,12 +32,26 @@ async function initEditor(markdown: string) {
   await crepe.create();
 }
 
-// Handle messages from extension
+function applyTheme(themeCss: string) {
+  let styleEl = document.getElementById("md-theme");
+  if (!styleEl) {
+    styleEl = document.createElement("style");
+    styleEl.id = "md-theme";
+    document.head.appendChild(styleEl);
+  }
+  styleEl.textContent = themeCss;
+}
+
 window.addEventListener("message", async (event) => {
   const message = event.data;
-  if (message.command === "setContent") {
-    isUpdatingFromExtension = true;
-    await initEditor(message.markdown);
-    isUpdatingFromExtension = false;
+  switch (message.command) {
+    case "setContent":
+      isUpdatingFromExtension = true;
+      await initEditor(message.markdown);
+      isUpdatingFromExtension = false;
+      break;
+    case "setTheme":
+      applyTheme(message.css);
+      break;
   }
 });

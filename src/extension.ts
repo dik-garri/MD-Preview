@@ -65,8 +65,29 @@ export function activate(context: vscode.ExtensionContext) {
         command: "setContent",
         markdown: markdownContent,
       });
+
+      // Send theme
+      sendTheme(context, currentPanel);
     })
   );
+
+  // Watch for theme changes
+  context.subscriptions.push(
+    vscode.workspace.onDidChangeConfiguration((e) => {
+      if (e.affectsConfiguration("mdPreview.theme") && currentPanel) {
+        sendTheme(context, currentPanel);
+      }
+    })
+  );
+}
+
+function sendTheme(context: vscode.ExtensionContext, panel: vscode.WebviewPanel) {
+  const theme = vscode.workspace.getConfiguration("mdPreview").get<string>("theme", "github");
+  const themePath = path.join(context.extensionPath, "src", "webview", "themes", `${theme}.css`);
+  if (fs.existsSync(themePath)) {
+    const themeCss = fs.readFileSync(themePath, "utf8");
+    panel.webview.postMessage({ command: "setTheme", css: themeCss });
+  }
 }
 
 function getWebviewContent(scriptUri: vscode.Uri, cspSource: string): string {
