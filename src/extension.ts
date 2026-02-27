@@ -39,7 +39,14 @@ export function activate(context: vscode.ExtensionContext) {
 
         currentPanel.webview.onDidReceiveMessage(
           (message) => {
-            if (message.command === "contentChanged") {
+            if (message.command === "ready") {
+              // Webview is loaded — now send content and theme
+              currentPanel!.webview.postMessage({
+                command: "setContent",
+                markdown: doc.getText(),
+              });
+              sendTheme(context, currentPanel!);
+            } else if (message.command === "contentChanged") {
               const edit = new vscode.WorkspaceEdit();
               const fullRange = new vscode.Range(
                 doc.positionAt(0),
@@ -62,14 +69,6 @@ export function activate(context: vscode.ExtensionContext) {
         scriptUri,
         currentPanel.webview.cspSource
       );
-
-      currentPanel.webview.postMessage({
-        command: "setContent",
-        markdown: markdownContent,
-      });
-
-      // Send theme
-      sendTheme(context, currentPanel);
     })
   );
 

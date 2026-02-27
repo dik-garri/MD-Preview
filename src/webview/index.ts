@@ -55,3 +55,6 @@ window.addEventListener("message", async (event) => {
       break;
   }
 });
+
+// Tell extension we're ready to receive content
+vscode.postMessage({ command: "ready" });

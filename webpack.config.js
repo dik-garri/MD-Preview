@@ -2,6 +2,7 @@
 "use strict";
 
 const path = require("path");
+const webpack = require("webpack");
 
 /** @type {import('webpack').Configuration} */
 const extensionConfig = {
@@ -41,8 +42,13 @@ const webviewConfig = {
     path: path.resolve(__dirname, "media"),
     filename: "webview.js",
   },
+  plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
+  ],
   resolve: {
     extensions: [".ts", ".js", ".css"],
+    conditionNames: ["import", "module", "browser", "default"],
+    mainFields: ["module", "main"],
   },
   module: {
     rules: [
