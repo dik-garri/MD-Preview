@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import * as fs from "fs";
+import { registerExportHtmlCommand } from "./commands/exportHtml";
 
 let currentPanel: vscode.WebviewPanel | undefined;
 
@@ -79,6 +80,9 @@ export function activate(context: vscode.ExtensionContext) {
       }
     })
   );
+
+  // Export commands
+  context.subscriptions.push(registerExportHtmlCommand(context));
 }
 
 function sendTheme(context: vscode.ExtensionContext, panel: vscode.WebviewPanel) {
