@@ -1,0 +1,62 @@
+{
+  "name": "md-preview",
+  "displayName": "MD Preview",
+  "description": "WYSIWYG Markdown editor with themes and export",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "mdPreview.open",
+        "title": "Open WYSIWYG Preview",
+        "category": "MD Preview"
+      },
+      {
+        "command": "mdPreview.exportHtml",
+        "title": "Export to HTML",
+        "category": "MD Preview"
+      },
+      {
+        "command": "mdPreview.exportPdf",
+        "title": "Export to PDF",
+        "category": "MD Preview"
+      }
+    ],
+    "configuration": {
+      "title": "MD Preview",
+      "properties": {
+        "mdPreview.theme": {
+          "type": "string",
+          "default": "github",
+          "enum": ["github", "dark", "minimal"],
+          "description": "Theme for Markdown preview"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "compile": "webpack --mode development"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "webpack": "^5.90.0",
+    "webpack-cli": "^5.1.0",
+    "ts-loader": "^9.5.0",
+    "style-loader": "^3.3.0",
+    "css-loader": "^6.9.0"
+  },
+  "dependencies": {
+    "@milkdown/crepe": "^7.0.0",
+    "markdown-it": "^14.0.0"
+  }
+}
